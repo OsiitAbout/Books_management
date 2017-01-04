@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    <!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+    <constant name="struts.multipart.saveDir " value="d:/tmp" />
+    
+    <!--用户!-->
+	<package name="default" namespace="/" extends="struts-default">
+	<action name="user_*" class="com.test.user.LoginAction" method="{1}">
+	<!--用户登录验证-->
+	<result name="user_Zhuye">G.jsp</result>
+	<!--密码错误或不存在该用户-->
+	<result name="user_Cuowu">Cuowu.jsp</result>
+	<!--查询所有用户信息-->
+	<result name="user_ChaUser">ChaUser.jsp</result>
+	<!--增加用户信息-->
+	<result name="user_AddUser">AddUser.jsp</result>
+	<!--删除用户信息-->
+	<result name="user_DeleteUser">ChaUser.jsp</result>
+	<!--修改用户信息-->
+	<result name="user_UpdateMima">Suoyin1.jsp</result>
+	<!--注册用户信息-->
+	<result name="user_Zhuce">index.jsp</result>
+	</action>
+	</package>
+	
+	<!--图书!-->
+	<package name="ful" namespace="/" extends="struts-default">
+	<action name="shu_*" class="com.test.shu.ShuAction" method="{1}">
+	<!--展示页面-->
+	<result name="shu_Zhanshi">Suoyin1.jsp</result>
+	<!--描述页面 -->
+	<result name="shu_Miaoshu">Miaoshu.jsp</result>
+	<!--查询世界类型-->
+	<result name="shu_ChaShijie">Suoyin1.jsp</result>
+	<!--查询玄幻类型-->
+	<result name="shu_ChaXuanhuan">Suoyin1.jsp</result>
+	<!--查询武侠类型-->
+	<result name="shu_ChaWuxia">Suoyin1.jsp</result>
+	<!--查询娱乐类型-->
+	<result name="shu_ChaYule">Suoyin1.jsp</result>
+	<!--查询都市类型-->
+	<result name="shu_ChaDoushi">Suoyin1.jsp</result>
+	<!--查询历史类型-->
+	<result name="shu_ChaLishi">Suoyin1.jsp</result>
+	<!--查询古代类型-->
+	<result name="shu_ChaGudai">Suoyin1.jsp</result>
+	<!--查询全部图书-->
+	<result name="shu_ChaTushu">Tushu.jsp</result>
+	<!--增加图书-->
+	<result name="shu_AddTushu">Tushu.jsp</result>
+	<!--审核图书上下架-->
+	<result name="shu_Shenhe">Tushu.jsp</result>
+	<!--立即购买-->
+	<result name="shu_Liji">Liji.jsp</result>
+	<!--查找书籍-->
+	<result name="shu_Chazhao">Suoyin1.jsp</result>
+	<!--修改图书信息-->
+	<result name="shu_UpdateTushu">UpdateTushu.jsp</result>
+	</action>
+	</package>
+	
+	<!--订单!-->
+	<package name="fu2" namespace="/" extends="struts-default">
+	<action name="dingdan_*" class="com.test.dingdan.DingdanAction" method="{1}">
+	<!--增加订单-->
+	<result name="dingdan_AddDingdan" type="redirect">shu_Zhanshi.action</result>
+	<!--加入购物车-->
+	<result name="dingdan_Gouwuche" type="redirect">shu_Zhanshi.action</result>
+	<!--结算页面-->
+	<result name="dingdan_Jiesuan">Jiesuan.jsp</result>
+	<!--查询所有订单-->
+	<result name="dingdan_ChaDingdan">Dingdan.jsp</result>
+	<!--审核订单-->
+	<result name="dingdan_ShenheDingdan">Dingdan.jsp</result>
+	<!--结算提交-->
+	<result name="dingdan_Add" type="redirect">shu_Zhanshi.action</result>
+	<!--查询自己所购买的书-->
+	<result name="dingdan_Dingdan">Dingdanzi.jsp</result>
+	</action>
+	</package>
+	
+	<!--图书类型-->
+	<package name="fu3" namespace="/" extends="struts-default">
+	<action name="lei_*" class="com.test.leixing.LeiXing" method="{1}">
+	<!--查询所有图书的类型-->
+	<result name="lei_Chaleixing">Leixing.jsp</result>
+	<!--增加图书类型-->
+	<result name="lei_Addleixing">Leixing.jsp</result>
+	<!--修改图书类型-->
+	<result name="lei_Updateleixing">Updateleixing.jsp</result>
+	<!--删除图书类型-->
+	<result name="lei_Deleteleixing" type="redirect">lei_Chaleixing.action</result>
+	</action>
+	</package>
+</struts>  
